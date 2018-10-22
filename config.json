@@ -1,0 +1,192 @@
+{
+  "MajorVersion": "6",
+  "Transaction": {
+    "MajorVersion": "6",
+    "HeaderNumber": 123456,
+    "FixVersion": "1",
+    "MinorVersion": "0",
+    "BusinessUnit": {
+      "UnitID": {
+        "Name": "6207 Matrix",
+        "value": "6207"
+      }
+    },
+    "WorkstationID": {
+      "WorkstationLocation": "90",
+      "TypeCode": "POS",
+      "value": "1"
+    },
+    "SequenceNumber": "2",
+    "TransactionID": "2",
+    "OperatorID": {
+      "OperatorType": "X:ConvenienceCashier",
+      "OperatorName": "Mark",
+      "value": "16"
+    },
+    "RetailTransaction": {
+      "LineItem": {
+        "EntryMethod": "SmartCard",
+        "ItemID": "0000000269483",
+        "ActualSalesUnitPrice": {
+          "Currency": "GBP",
+          "value": "1.33"
+        },
+        "Quantity": {
+          "EntryMethod": "Automatic",
+          "UnitOfMeasureCode": "LTR",
+          "Units": "15",
+          "value": "1"
+        },
+        "Tender": {
+          "TenderType": "CreditDebit",
+          "Amount": {
+            "Currency": "GBP",
+            "value": "25.06"
+          },
+          "Cashback": {
+            "Currency": "GBP",
+            "value": "0"
+          },
+          "Authorization": {
+            "VerifiedByPINFlag": "false",
+            "SignatureRequiredFlag": "false",
+            "RequestedAmount": {
+              "Currency": "GBP",
+              "value": "25.06"
+            },
+            "AuthorizationCode": "919909",
+            "ReferenceNumber": "1490250005000",
+            "MerchantNumber": "123456789",
+            "ProviderID": "0",
+            "AuthorizationDateTime": "2017-03-23T06:20:24.768",
+            "ReceiptText": null,
+            "DiagnosticCode": "0",
+            "ProviderData": "475127******5985",
+            "CardId": "CREDIT",
+            "CardType": "VISA",
+            "AuthorizationType": "Online",
+            "TotalWaitTime": "2",
+            "NetworkTime": "2",
+            "TenderReferenceId": "1",
+            "AuthorizationResponseCode": "00",
+            "IsToken": "true"
+          },
+          "TenderID": "15",
+          "TenderDescription": "CreditDebit"
+        },
+        "SequenceNumber": "2",
+        "BeginDateTime": "2017-03-23T06:20:24.767",
+        "EndDateTime": "2017-03-23T06:20:24.768"
+      },
+      "Total": [
+        {
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "TransactionGrossAmount",
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "TransactionNetAmount",
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "TransactionPurchaseQuantity",
+          "value": "1.00"
+        },
+        {
+          "TypeCode": "Return",
+          "TotalType": "TransactionPurchaseQuantity",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:TransactionTaxIncluded",
+          "CurrencyCode": "GBP",
+          "value": "4.18"
+        },
+        {
+          "TotalType": "X:TransactionTaxSurcharge",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:TransactionTotalSavings",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "TransactionGrandAmount",
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "X:TransactionTotalVoidAmount",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:TransactionTotalVoidCount",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:TransactionTotalReturnAmount",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "TransactionTaxExemptAmount",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "TransactionTenderApplied",
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "X:CashbackTotalAmount",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:TransactionMerchandiseAmount",
+          "CurrencyCode": "GBP",
+          "value": "25.06"
+        },
+        {
+          "TotalType": "X:TransactionNonMerchandiseAmount",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:NonResettableGrandTotal",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        },
+        {
+          "TotalType": "X:PreviousNonResettableGrandTotal",
+          "CurrencyCode": "GBP",
+          "value": "0"
+        }
+      ],
+      "Customer": {
+        "CustomerID": "22776330011",
+        "Name": null,
+        "CustomerExternalId": "9826300022776330011",
+        "AccountNumber": "9826300022776330",
+        "IssueNumber": "1",
+        "Segment": "Nectar",
+        "SequenceNumber": "0",
+        "EndDateTime": "2017-03-23T06:20:24.771",
+        "ScanData": "29922776330011"
+      },
+      "LoyaltyAccount": null,
+      "PromotionsSummary": null
+    },
+    "BusinessDayDate": "2017-03-23",
+    "BeginDateTime": "2017-03-23T06:19:55.972",
+    "EndDateTime": "2017-03-23T06:20:24.771"
+  }
+}
