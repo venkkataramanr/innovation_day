@@ -1,39 +1,82 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
 </head>
-<body>
-<div align="center">
-    <div class="p-3 mb-2 bg-warning text-white"><font size = "10">Sainsbury's</font></div>
-    <form method="POST">
-        <table class="table table-striped" style="width:400px" align="center">
-            <tr>
+<body style="text-align:center">
+<form method="POST">
+    <div align="center">
+        <div class="p-3 mb-2 bg-Active text-warning"><i><font size="10">Point of Sale</font></i></div>
+        <img src="{{ url_for('static', filename='live_well_for_less.jpg') }}"
+             style="position:absolute;width:400px;margin:10px;right:70%;top:1px"
+             align="left">
+        <img src="{{ url_for('static', filename='sainsburys.png') }}"
+             style="position:absolute;width:400px;margin:10px;right:70%;bottom:350px"
+             align="right">
+        <img src="{{ url_for('static', filename='pos.jpeg') }}"
+             style="position:absolute;width:350px;margin:10px;left:70%;bottom:350px"
+             align="right">
+        <table class="table table-bordered" style="width:400px;border:black" align="">
+            <tr class="table-warning">
                 <th align="center">S.NO</th>
                 <th align="center">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSKU</th>
                 <th align="center">&nbsp&nbspQuantity</th>
+                <th align="center">&nbsp&nbspPrice</th>
             </tr>
-            <tr class="table-warning">
-                <td align="center">1</td>
-                <td align="center"><input id="sku_1" type="text" name="sku_1" value="{{ request.form['sku_1'] }}"/></td>
+            <tr class="table-secondary">
                 <td align="center">
-                    <input id="qty_1" type="text" name="qty_1" value="{{ request.form['qty_1'] }}" style="width:50px"/>
+                    <center><br/>1</center>
+                </td>
+                <td align="center"><input id="sku_1" type="text" name="sku_1" value="{{ request.form['sku_1'] }}"
+                                          style="height:50px"/></td>
+                <td align="center">
+                    <input id="qty_1" type="text" name="qty_1" value="{{ request.form['qty_1'] }}" style="width:50px;height:50px"/>
+                </td>
+                <td align="center">
+                    <input id="price_1" type="text" name="qty_1" value="{{ price_1 }}" style="width:50px;height:50px"/>
                 </td>
             </tr>
-            <tr align="center">
-                <td align="center">2</td>
-                <td align="center"><input id="sku_2" type="text" name="sku_2" value="{{ request.form['sku_2'] }}"/></td>
+            <tr align="center" class="table-warning">
                 <td align="center">
-                    <input id="qty_2" type="text" name="qty_2" value="{{ request.form['qty_2'] }}" style="width:50px"/>
+                    <center><br/>2</center>
+                </td>
+                <td align="center">
+                    <input id="sku_2" type="text" name="sku_2" value="{{ request.form['sku_2'] }}" style="height:50px"/>
+                </td>
+                <td align="center">
+                    <input id="qty_2" type="text" name="qty_2" value="{{ request.form['qty_2'] }}" style="width:50px;height:50px"/>
+                </td>
+                <td align="center">
+                    <input id="price_2" type="text" name="qty_1" value="{{ price_2 }}" style="width:50px;height:50px"/>
                 </td>
             </tr>
-            <tr class="table-warning">
-                <td align="center">3</td>
-                <td align="center"><input id="sku_3" type="text" name="sku_3" value="{{ request.form['sku_3'] }}"/></td>
+            <tr class="table-secondary">
                 <td align="center">
-                    <input id="qty_3" type="text" name="qty_3" value="{{ request.form['qty_3'] }}" style="width:50px"/>
+                    <center><br/>3</center>
+                </td>
+                <td align="center">
+                    <input id="sku_3" type="text" name="sku_3" value="{{ request.form['sku_3'] }}" style="height:50px"/>
+                </td>
+                <td align="center">
+                    <input id="qty_3" type="text" name="qty_3" value="{{ request.form['qty_3'] }}" style="width:50px;height:50px"/>
+                </td>
+                <td align="center">
+                    <input id="price_3" type="text" name="qty_1" value="{{ price_3 }}" style="width:50px;height:50px"/>
                 </td>
             </tr>
         </table>
-        <input type="submit" align="center" class="btn btn-warning" value="Complete transaction"/>
-    </form>
-</div>
+        <input type="submit" class="btn btn-warning" value="Complete transaction" style="height:50px;font-size:20px;color:white"/></br>
+        <input type="submit" class="btn btn-warning" value="Proceed to payment"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:26%;top:53%;font-size:20px;color:white"/>
+        <input type="submit" class="btn btn-warning" value="Scan my nectar"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:13%;top:53%;font-size:larger;color:white"/>
+        <input type="submit" class="btn btn-warning" value="Lookup items"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:0%;top:53%;font-size:larger;color:white"/>
+        <input type="submit" class="btn btn-warning" value="Purchase Bags"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:26%;top:76%;font-size:larger;color:white"/>
+        <input type="submit" class="btn btn-warning" value="Seek assistance"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:13%;top:76%;font-size:larger;color:white"/>
+        <input type="submit" class="btn btn-warning" value="Promotions"
+               style="height:150px;width:200px;position:absolute;width:200px;margin:10px;right:0%;top:76%;font-size:larger;color:white"/>
+    </div>
+</form>
 </body>

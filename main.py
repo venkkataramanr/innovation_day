@@ -7,37 +7,53 @@ app = Flask(__name__)
 
 THIS_DIR = os.path.dirname(__file__)
 
-@app.route('/', methods = ['POST'])
+json_one, json_two, json_three =None, None, None
+
+@app.route('/', methods = ['POST', 'GET'])
+
 def post():
-    sku_1 = request.form.get('sku_1', '')
-    sku_2 = request.form.get('sku_2', '')
-    sku_3 = request.form.get('sku_3', '')
-    qty_1 = request.form.get('qty_1', '')
-    qty_2 = request.form.get('qty_2', '')
-    qty_3 = request.form.get('qty_3', '')
+    context = {
+        "price_1": '0',
+        "price_2": '0',
+        "price_3": '0',
+    }
 
-    json_one = get_config()
-    json_two = get_config()
-    json_three = get_config()
+    if request.method == 'POST':
+        sku_1 = request.form.get('sku_1', '')
+        sku_2 = request.form.get('sku_2', '')
+        sku_3 = request.form.get('sku_3', '')
+        qty_1 = request.form.get('qty_1', '0')
+        qty_2 = request.form.get('qty_2', '0')
+        qty_3 = request.form.get('qty_3', '0')
 
-    json_one['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = sku_1
-    json_two['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = sku_2
-    json_three['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = sku_3
+        price_1 = int(qty_1) * 2
+        price_2 = int(qty_2) * 4
+        price_3 = int(qty_3) * 6
 
-    json_one['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_1
-    json_two['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_2
-    json_three['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_3
+        context.update({'price_1': price_1, 'price_2': price_2, 'price_3':price_3})
 
-    json_file_list = [json_one, json_two, json_three]
+        json_one = get_config()
+        json_two = get_config()
+        json_three = get_config()
 
-    producer = KafkaProducer(bootstrap_servers='localhost:1234')
-    for _ in json_file_list:
-        future = producer.send('foobar', b'another_message')
-        result = future.get(timeout=60)
+        json_one['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = 12345
+        json_two['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = 67890
+        json_three['Transaction']['RetailTransaction']['LineItem']['Quantity']['ItemID'] = 98078
 
-    producer.flush()
+        json_one['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_1
+        json_two['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_2
+        json_three['Transaction']['RetailTransaction']['LineItem']['Quantity']['Units'] = qty_3
 
-    return render_template('home.html')
+        json_file_list = [json_one, json_two, json_three]
+
+        producer = KafkaProducer(bootstrap_servers='localhost:9092')
+        for json_file in json_file_list:
+            future = producer.send('test', json.dumps(json_file).encode())
+            result = future.get(timeout=60)
+
+        producer.flush()
+
+    return render_template('home.html', **context)
 
 def get_config():
     """
